@@ -1,0 +1,83 @@
+{
+  "$schema": "https://blueprint.jtgpanel.com/schema/v1.json",
+  "id": "demo-counter",
+  "name": "Demo Counter Extension",
+  "version": "1.0.0",
+  "description": "Sample extension to test Blueprint serverless key function and extension lifecycle.",
+  "author": {
+    "name": "Kira Gaming",
+    "email": "kiragamingofficial95-cmd@outlook.com",
+    "url": "https://github.com/kiragamingofficial95-cmd"
+  },
+  "icon": "BarChart3",
+  "category": "utilities",
+  "tags": ["demo", "sample", "testing", "counter"],
+  "homepage": "https://blueprint.jtgpanel.com/extensions/demo-counter",
+  "repository": "https://github.com/kiragamingofficial95-cmd/jtg-blueprint-demo-counter",
+  "license": "MIT",
+  "compatibility": {
+    "jtg_panel": ">=2.0.0",
+    "blueprint": ">=1.0.0"
+  },
+  "dependencies": {},
+  "permissions": [
+    "servers.read",
+    "settings.read",
+    "database.write"
+  ],
+  "entrypoints": {
+    "backend": "src/server/index.js",
+    "frontend": "src/client/index.js"
+  },
+  "routes": {
+    "apiPrefix": "/api/extensions/demo-counter",
+    "adminPage": {
+      "path": "/admin/extensions/demo-counter",
+      "title": "Demo Counter",
+      "icon": "BarChart3"
+    },
+    "navItems": [
+      {
+        "title": "Demo Counter",
+        "path": "/admin/extensions/demo-counter",
+        "icon": "BarChart3",
+        "section": "admin"
+      }
+    ]
+  },
+  "configSchema": {
+    "fields": [
+      {
+        "key": "startValue",
+        "label": "Starting Counter Value",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "description": "Initial value for the counter when extension starts."
+      },
+      {
+        "key": "incrementStep",
+        "label": "Increment Step",
+        "type": "number",
+        "default": 1,
+        "min": 1,
+        "description": "How much to increment the counter by each click."
+      },
+      {
+        "key": "maxValue",
+        "label": "Maximum Value",
+        "type": "number",
+        "default": 1000,
+        "min": 1,
+        "description": "Maximum value the counter can reach."
+      },
+      {
+        "key": "enableLogging",
+        "label": "Enable Activity Logging",
+        "type": "boolean",
+        "default": true,
+        "description": "Log counter changes to database."
+      }
+    ]
+  }
+}
